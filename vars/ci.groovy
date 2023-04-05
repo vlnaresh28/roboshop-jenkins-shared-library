@@ -14,7 +14,6 @@ def call() {
 
       stage('Test Cases') {
         steps {
-          script {
             echo 'Test Cases'
           }
         }
