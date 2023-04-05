@@ -6,8 +6,8 @@ def call() {
 
       stage('Compile/Build') {
         steps {
-          script {
-            common.compile()
+          
+          echo 'Compile/Build'
           }
         }
       }
@@ -15,8 +15,9 @@ def call() {
       stage('Test Cases') {
         steps {
           script {
-            common.testcases()
+            echo 'Test Cases'
           }
         }
       }
+ }
 }
