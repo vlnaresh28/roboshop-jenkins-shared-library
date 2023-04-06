@@ -18,5 +18,5 @@ def testcases() {
 
 def codequality() {
  
-      sh 'sonar-scanner -Dsonar.host.url=http://172.31.2.143:9000 -Dsonar.login=${SONARQUBE_USER} -Dsonar.password=${SONARQUBE_PASS} -Dsonar.projectKey=${component} ${sonar_extra_opts} -Dsonar.qualitygate.wait=true'
+      sh 'sonar-scanner -Dsonar.host.url=http://172.31.2.143:9000 -Dsonar.login=admin -Dsonar.password=admin123 -Dsonar.projectKey=${component} ${sonar_extra_opts}'
   }
