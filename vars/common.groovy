@@ -17,7 +17,7 @@ def testcases() {
 
 
 def codequality() {
-  withAWSParameterStore(credentialsId: 'PARAM2', naming: 'absolute', path: '/sonarqube', recursive: true, regionName: 'us-east-1') {
+  withAWSParameterStore(credentialsId: 'PARAM3', naming: 'absolute', path: '/sonarqube', recursive: true, regionName: 'us-east-1') {
       sh 'sonar-scanner -Dsonar.host.url=http://172.31.2.143:9000 -Dsonar.login=${SONARQUBE_USER} -Dsonar.password=admin123 -Dsonar.projectKey=${component} ${sonar_extra_opts}'
     }
 
