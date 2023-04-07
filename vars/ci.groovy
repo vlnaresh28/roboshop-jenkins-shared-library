@@ -10,6 +10,10 @@ def call() {
       stage('Compile/Build') {
         steps {
           script {
+            withAWSParameterStore(credentialsId: 'PARAM3', naming: 'absolute', path: 'sonarqube.user', recursive: false, regionName: 'us-east-1') {
+             sh 'env'
+              sh 'exit 1'
+            }
             common.compile()
           }
         }
@@ -31,8 +35,8 @@ def call() {
         }
       }
     }
-    
-post {
+
+    post {
       failure {
         mail body: "<h1>${component} - Pipeline Failed \n ${BUILD_URL}</h1>", from: 'nareshreddyputikam@gmail.com', subject: "${component} - Pipeline Failed", to: 'nareshreddyputikam@gmail.com',  mimeType: 'text/html'
       }
