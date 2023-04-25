@@ -17,16 +17,11 @@ def call() {
         git branch: 'main', url: "https://github.com/vlnaresh28/${component}"
       }
 
-      sh 'env'
-
       if (env.BRANCH_NAME != "main") {
         stage('Compile/Build') {
           common.compile()
         }
       }
-
-      println GTAG
-      println BRANCH_NAME
 
       if(env.GTAG != "true" && env.BRANCH_NAME != "main") {
         stage('Test Cases') {
